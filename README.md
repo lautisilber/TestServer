@@ -2,7 +2,7 @@
 
 Simple server that echoes whatever it is sent. Can be used to test http clients. Created with iot applications in mind.
 
-This script uses the package ***Flask***. It can be install via the command:
+This script uses the package ***Flask***. It can be installed via the command:
 
 <pre><code>pip install Flask</code></pre>
 
