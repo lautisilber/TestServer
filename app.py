@@ -1,7 +1,20 @@
 from flask import Flask, request
 import json
+import sys
+
 
 HTTP_METHODS = ['GET', 'HEAD', 'POST', 'PUT', 'DELETE', 'CONNECT', 'OPTIONS', 'TRACE', 'PATCH']
+
+def get_sys_kwargs():
+    kwargs = {}
+    for arg in sys.argv:
+        if arg.startswith('--'):
+            if (len(arg.split('=')) > 1):
+                kwargs[arg.split('=')[0][2:]] = arg.split('=')[1]
+            else:
+                pass
+                #kwargs[arg[2:]] = True
+    return kwargs
 
 class smart_json:
     def __init__(self, **kwargs):
@@ -40,4 +53,10 @@ if __name__ == '__main__':
     '''
     host = '127.0.0.1' # default is '127.0.0.1'
     port = 5000 # default is 5000
+
+    kwargs = get_sys_kwargs()
+    if 'host' in kwargs:
+        host = kwargs['host']
+    if 'port' in kwargs:
+        port = int(kwargs['port'])
     app.run(debug=True, host=host, port=port)
