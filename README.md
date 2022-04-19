@@ -8,7 +8,7 @@ This script uses the package ***Flask***. It can be installed via the command:
 
 Then you can run the server with:
 
-<pre><code>python app.py</code></pre>
+<pre><code>python3 app.py</code></pre>
 
 
 If you wanted to specify a host and/or port you can do so by adding the arguments <code>--host="\<your host\>"</code> and <code>--port="\<your port\>"</code>.
