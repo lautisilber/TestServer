@@ -9,8 +9,9 @@ def get_sys_kwargs():
     kwargs = {}
     for arg in sys.argv:
         if arg.startswith('--'):
-            if (len(arg.split('=')) > 1):
-                kwargs[arg.split('=')[0][2:]] = arg.split('=')[1]
+            kwarg = arg.split('=')
+            if (len(kwarg) > 1):
+                kwargs[kwarg[0][2:]] = kwarg[1]
             else:
                 pass
                 #kwargs[arg[2:]] = True
