@@ -38,9 +38,9 @@ def main(path):
         print(j.to_dict())
         return j.to_string()
     elif request.method == 'POST':
-        print('a', request.data)
         # request data is in bytes
         j = smart_json(method='POST', path=path, data=request.data.decode("utf-8"), form=request.form)
+        d = json.loads(j.to_dict()['data'])
         print(j.to_dict())
         return j.to_string()
     else:
@@ -60,4 +60,5 @@ if __name__ == '__main__':
         host = kwargs['host']
     if 'port' in kwargs:
         port = int(kwargs['port'])
+    print(f"Starting server on host: '{host}' and port: '{port}'")
     app.run(debug=True, host=host, port=port)
